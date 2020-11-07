@@ -2,13 +2,13 @@ swagger: "2.0"
 info:
   description: This is the swagger file that goes with our server code
   version: "1.0.0"
-  title: Swagger REST article
+  title: Swagger ReST Article
 consumes:
-  - "application/json"
+  - application/json
 produces:
-  - "application/json"
+  - application/json
 
-basepath: "/api"
+basePath: /api
 
 # Paths supported by the server application
 paths:
@@ -16,19 +16,19 @@ paths:
     get:
       operationId: people.read
       tags:
-        - "People"
-      summary: "The people data structure supported by the server application"
-      description: "Read the list of people"
+        - People
+      summary: The people data structure supported by the server application
+      description: Read the list of people
       responses:
         200:
-          description: "Successful read people list operation"
+          description: Successful read people list operation
           schema:
-            type: "array"
+            type: array
             items:
               properties:
                 fname:
-                  type: "string"
+                  type: string
                 lname:
-                  type: "string"
+                  type: string
                 timestamp:
                   type: string

@@ -5,7 +5,7 @@ people data
 
 from flask import make_response, abort
 from config import db
-from models import Person, PersonSchema
+from models import Note, Person, PersonSchema
 
 
 # Create a handler for our read (GET) people
@@ -32,7 +32,9 @@ def read_one(person_id):
     :return:            person matching the ID
     """
     # Get the person requested
-    person = Person.query.filter(Person.person_id == person_id).one_or_none()
+    person = (
+        Person.query.filter(Person.person_id == person_id).outerjoin(Note).one_or_none()
+    )
 
     # Did we find a person
     if person is not None:
